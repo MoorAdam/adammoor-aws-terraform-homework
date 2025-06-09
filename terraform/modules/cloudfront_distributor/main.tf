@@ -1,11 +1,8 @@
 resource "aws_cloudfront_distribution" "html_distribution" {
   origin {
     domain_name              = var.bucket_regional_domain_name
-    origin_id                = var.s3_origin_id
-
     origin_access_control_id = var.origin_access_control_id
-
-    
+    origin_id                = var.s3_origin_id
   }
   enabled             = var.distribution_enabled
   is_ipv6_enabled     = true

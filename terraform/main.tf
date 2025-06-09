@@ -12,45 +12,51 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = ">= 5.0"
     }
   }
 }
 
-module "vpc" {
-  source = "./modules/vpc"
+resource "aws_vpc" "vpc" {
+  cidr_block = var.vpc_cidr_block
 
-  vpc_name       = var.vpc_name
-  vpc_cidr_block = var.vpc_cidr_block
+  tags = {
+    Name = var.vpc_name
+  }
 }
 
-module "public_subnet" {
-  source = "./modules/subnet"
+resource "aws_subnet" "public_subnet" {
+    vpc_id = aws_vpc.vpc.id
 
-  vpc_id                   = module.vpc.vpc_id
-  subnet_name              = var.public_subnet_name
-  subnet_cidr              = var.public_subnet_cidr_block
-  subnet_availability_zone = var.public_subnet_availability_zone
-  map_public_ip_on_launch  = true
+    cidr_block = var.public_subnet_cidr_block
+    availability_zone = var.public_subnet_availability_zone
+
+    map_public_ip_on_launch = true
+    tags = {
+        Name = "private_subnet"
+    }
 }
 
-module "private_subnet" {
-  source = "./modules/subnet"
+resource "aws_subnet" "private_subnet" {
+    vpc_id = aws_vpc.vpc.id
 
-  vpc_id                   = module.vpc.vpc_id
-  subnet_name              = var.private_subnet_name
-  subnet_cidr              = var.private_subnet_cidr_block
-  subnet_availability_zone = var.private_subnet_availability_zone
-  map_public_ip_on_launch  = false
+    cidr_block = var.private_subnet_cidr_block
+    availability_zone = var.private_subnet_availability_zone
+
+    map_public_ip_on_launch = false
+    tags = {
+        Name = "private_subnet"
+    }
 }
 
-module "ec2_instance" {
-  source = "./modules/ec2"
-
-  instance_type = var.instance_type
-  ami_id        = var.ami_id
-  subnet_id     = module.public_subnet.subnet_id
-  instance_name = var.instance_name
+resource "aws_instance" "instance" {
+    ami           = var.ami_id
+    instance_type = var.instance_type
+    subnet_id     = aws_subnet.public_subnet.id
+    
+    tags = {
+        Name = var.instance_name
+    }
 }
 
 module "static_file_server" {

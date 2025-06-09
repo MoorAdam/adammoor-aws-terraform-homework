@@ -19,7 +19,3 @@ variable "default_root_object" {
   type    = string
   default = "index.html"
 }
-
-# variable "origin_access_identity" {
-#   type = string
-# }
