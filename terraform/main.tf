@@ -22,7 +22,8 @@ module "public_subnet" {
   vpc_id                   = module.vpc.vpc_id
   subnet_name              = var.public_subnet_name
   subnet_cidr              = var.public_subnet_cidr_block
-  subnet_availability_zone = true
+  subnet_availability_zone = var.public_subnet_availability_zone
+  map_public_ip_on_launch  = true
 }
 
 module "private_subnet" {
@@ -31,7 +32,8 @@ module "private_subnet" {
   vpc_id                   = module.vpc.vpc_id
   subnet_name              = var.private_subnet_name
   subnet_cidr              = var.private_subnet_cidr_block
-  subnet_availability_zone = false
+  subnet_availability_zone = var.private_subnet_availability_zone
+  map_public_ip_on_launch  = false
 }
 
 module "ec2_instance" {
@@ -41,4 +43,11 @@ module "ec2_instance" {
   ami_id        = var.ami_id
   subnet_id     = module.public_subnet.subnet_id
   instance_name = var.instance_name
+}
+
+module "static_file_server" {
+  source = "./modules/static_file_server"
+
+  html_file_key          = var.html_file_key
+  html_file_source       = var.html_file_source
 }

@@ -4,9 +4,8 @@ resource "aws_cloudfront_distribution" "html_distribution" {
     origin_id                = var.s3_origin_id
 
     origin_access_control_id = var.origin_access_control_id
-    # s3_origin_config {
-    #   origin_access_identity = var.origin_access_identity
-    # }
+
+    
   }
   enabled             = var.distribution_enabled
   is_ipv6_enabled     = true
