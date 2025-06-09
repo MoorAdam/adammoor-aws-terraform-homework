@@ -1,5 +1,5 @@
 variable "operation-iam-role" {
-  default = "terragrunt-execution-role"
+  default = "arn:aws:iam::239762172680:role/terragrunt-execution-role"
 }
 
 variable "aws_region" {
