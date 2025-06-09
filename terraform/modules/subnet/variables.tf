@@ -2,33 +2,20 @@ variable "vpc_id" {
   type        = string
 }
 
-
-variable "public_subnet_cidr" {
+variable "subnet_cidr" {
   type = string
 }
 
-variable "private_subnet_cidr" {
+variable "subnet_name" {
+  type = string
+  default = "subnet"
+}
+
+variable "subnet_availability_zone" {
   type = string
 }
 
-
-
-variable "public_subnet_name" {
-  type = string
-  default = "public_subnet"
-}
-
-variable "private_subnet_name" {
-  type = string
-  default = "private_subnet"
-}
-
-
-
-variable "public_subnet_availability_zone" {
-  type = string
-}
-
-variable "private_subnet_availability_zone" {
-  type = string
+variable "map_public_ip_on_launch" {
+  type    = bool
+  default = false
 }
