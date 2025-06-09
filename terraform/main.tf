@@ -6,7 +6,7 @@ terraform {
     bucket         = "state-bucket-245473465"
     key            = "terraform.tfstate"
     use_lockfile = true
-    region         = "eu-west-2"
+    region         = "eu-centrnal-1"
   }
 
   required_providers {

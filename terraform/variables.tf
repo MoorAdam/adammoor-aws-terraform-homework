@@ -5,7 +5,7 @@ variable "state_backend_s3" {
 
 
 variable "aws_region" {
-  default = "eu-west-2"
+  default = "eu-central-1"
 }
 
 
@@ -26,7 +26,7 @@ variable "public_subnet_cidr_block" {
   default = "192.168.1.0/24"
 }
 variable "public_subnet_availability_zone" {
-  default = "eu-west-2a"
+  default = "eu-central-1a"
 }
 
 
@@ -38,7 +38,7 @@ variable "private_subnet_cidr_block" {
   default = "192.168.2.0/24"
 }
 variable "private_subnet_availability_zone" {
-  default = "eu-west-2a"
+  default = "eu-central-1b"
 }
 
 
@@ -47,7 +47,7 @@ variable "instance_type" {
   default = "t2.micro"
 }
 variable "ami_id" {
-  default = "ami-01c0ed0b087735750"
+  default = "ami-014dd8ec7f09293e6"
 }
 variable "instance_name" {
   default = "public-instance"
