@@ -22,3 +22,13 @@ variable "private_subnet_name" {
 variable "private_subnet_cidr_block" {
   default = "192.168.2.0/24"
 }
+
+variable "instance_type" {
+  default = "t2.micro"
+}
+variable "ami_id" {
+  default = "ami-01c0ed0b087735750"
+}
+variable "instance_name" {
+  default = "public-instance"
+}
