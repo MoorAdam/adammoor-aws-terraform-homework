@@ -68,3 +68,9 @@ variable "html_file_key" {
 variable "html_file_source" {
   default = "../html/index.html"
 }
+
+
+
+variable "force_delete_files_on_destroy" {
+  default = false
+}

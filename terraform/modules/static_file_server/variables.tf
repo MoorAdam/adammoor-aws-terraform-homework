@@ -15,3 +15,8 @@ variable "bucket_name" {
   type        = string
   default = "file-server-bucket-7564756734965756"
 }
+
+variable "force_delete_files_on_destroy" {
+  type        = bool
+  default     = false
+}

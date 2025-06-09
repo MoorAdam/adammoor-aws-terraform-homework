@@ -64,4 +64,5 @@ module "static_file_server" {
 
   html_file_key          = var.html_file_key
   html_file_source       = var.html_file_source
+  force_delete_files_on_destroy = var.force_delete_files_on_destroy
 }
