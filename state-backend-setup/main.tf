@@ -23,7 +23,7 @@ resource "aws_s3_bucket_public_access_block" "state_bucket_pab" {
   block_public_acls       = true
   block_public_policy     = false
   ignore_public_acls      = true
-  restrict_public_buckets = true
+  restrict_public_buckets = false
 }
 
 resource "aws_s3_bucket_policy" "state_bucket_policy" {
@@ -34,13 +34,13 @@ resource "aws_s3_bucket_policy" "state_bucket_policy" {
     Statement = [
       {
         Effect = "Allow"
-        Principal = "*"
+        Principal = "arn:aws:iam::239762172680:role/terragrunt-execution-role"
         Action = ["s3:ListBucket"]
         Resource = "${aws_s3_bucket.state_bucket.arn}"
       },
       {
         Effect = "Allow"
-        Principal = "*"
+        Principal = "arn:aws:iam::239762172680:role/terragrunt-execution-role"
         Action = ["s3:GetObject", "s3:PutObject"]
         Resource = "${aws_s3_bucket.state_bucket.arn}/*"
       }
