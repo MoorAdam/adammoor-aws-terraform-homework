@@ -13,7 +13,7 @@ variable "distribution_enabled" {
 
 variable "bucket_name" {
   type        = string
-  default = "file-server-bucket-7564756734965756"
+  default = "file-server-bucket-756475674564363456345634965756"
 }
 
 variable "force_delete_files_on_destroy" {
