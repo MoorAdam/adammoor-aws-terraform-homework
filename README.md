@@ -14,7 +14,7 @@ This project supports centralized state management. For the sake of simplicty, t
 
 If you dont want to have the centralized backend, remove or comment out the `backend` block from the root `main.tf` file
 
-You will need aws cli with a profile that has the right permissions for creating resources.
+You will need aws cli to run this project. The project uses an aws profiled named `codefactory`. Create a profile with this name that has the right permissions
 
 **Before running the main project in the *"terraform"* folder, step inside the *"state-backend-setup"* folder with `cd state-backend-setup` and run `terraform init` then `terraform apply` inside the  folder. When the prompt asks if you wanna proceede, type in `yes`. This will set up the required s3 bucket for the backend.**
 
