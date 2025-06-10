@@ -20,7 +20,7 @@ resource "aws_cloudfront_origin_access_control" "s3_oac" {
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
-  name                              = "s3-origin-access-control"
+  name                              = "s3-origin-access-control-5757645656745"
 }
 
 data "aws_caller_identity" "current" {}
