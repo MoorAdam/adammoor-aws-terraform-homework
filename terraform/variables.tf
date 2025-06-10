@@ -1,9 +1,3 @@
-variable "state_backend_s3" {
-  default = "state-bucket-245472342343465"
-}
-
-
-
 variable "aws_region" {
   default = "eu-central-1"
 }

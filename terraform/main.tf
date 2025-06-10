@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 1.0.0"
 
   backend "s3" {
-    bucket         = "state-bucket-245473465"
+    bucket         = "state-bucket-245472342343465"
     key            = "terraform.tfstate"
     use_lockfile = true
     region         = "eu-central-1"

@@ -22,6 +22,8 @@ When its completed, you can run the main project.
 
 **From the root directory, setp into the *"terraform"* folder with `cd terraform` and run `terraform init` then `terraform apply`. When the terminal asks if you wanna proceede, again, type in `yes`. This will start building the project. This will take several minutes. After the process completed with no errors, the project has been built**
 
+**If it returns with an access denied error, remove the `backend` block from `terraform/main.tf` file**
+
 ## Created resources
 This project has several resources. This s a lost for all created resources
 - one vpc
